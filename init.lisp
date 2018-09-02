@@ -49,13 +49,17 @@
 (define-key *top-map* (kbd "s-K") "move-window up")
 (define-key *top-map* (kbd "s-L") "move-window right")
 
-;; Frame operations
+;; Window and frame operations
 (define-key *top-map* (kbd "s--") "vsplit")
 (define-key *top-map* (kbd "s-\\") "hsplit")
 (define-key *top-map* (kbd "s-|") "hsplit")
 (define-key *top-map* (kbd "s-c") "remove-split")
 (define-key *top-map* (kbd "s-C") "only")
 (define-key *top-map* (kbd "s-=") "balance-frames")
+(define-key *top-map* (kbd "s-w") "windowlist")
+(define-key *top-map* (kbd "s-f") "fullscreen")
+(define-key *top-map* (kbd "s-n") "pull-hidden-next")
+(define-key *top-map* (kbd "s-p") "pull-hidden-previous")
 
 ;; Applications
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
