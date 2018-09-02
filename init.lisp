@@ -1,5 +1,7 @@
 ;; -*-lisp-*-
 
+(in-package :stumpwm)
+
 ;(set-font "PragmataPro-10.5")
 
 ;; Key bindings --------------------------------------------------------------
