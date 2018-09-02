@@ -4,6 +4,14 @@
 
 ;(set-font "PragmataPro-10.5")
 
+;; Swank server --------------------------------------------------------------
+;; https://kaashif.co.uk/2015/06/28/hacking-stumpwm-with-common-lisp/index.html
+(require :swank)
+(swank-loader:init)
+(swank:create-server :port 4004
+                     :style swank:*communication-style*
+                     :dont-close t)
+
 ;; Key bindings --------------------------------------------------------------
 
 (set-prefix-key (kbd "s-q"))
