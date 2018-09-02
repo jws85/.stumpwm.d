@@ -19,6 +19,14 @@
                      :style swank:*communication-style*
                      :dont-close t)
 
+;; Switching groups ----------------------------------------------------------
+
+(setq *focus-group-hook* nil)
+(add-hook *focus-group-hook*
+          (lambda (new old)
+            (echo (format nil "Switched to^5 ~D^*:^6~A^*!"
+                          (group-number new) (group-name new)))))
+
 ;; Key bindings --------------------------------------------------------------
 
 (set-prefix-key (kbd "s-q"))
