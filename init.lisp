@@ -46,11 +46,16 @@
 ;; Group handling
 (define-key *top-map* (kbd "s-g") "gnew")
 (define-key *top-map* (kbd "s-TAB") "gother")
+(define-key *top-map* (kbd "s-`") "grouplist")
 (defun normalize-numbers (num)
   (if (= num 0) 10 num))
+(defun get-shifted-number (num)
+  (char ")!@#$%^&*(" num))
 (dolist (num (alexandria:iota 10))
   (define-key *top-map* (kbd (format nil "s-~D" num))
-    (format nil "gselect ~D" (normalize-numbers num))))
+    (format nil "gselect ~D" (normalize-numbers num)))
+  (define-key *top-map* (kbd (format nil "s-~C" (get-shifted-number num)))
+    (format nil "gmove ~D" (normalize-numbers num))))
 
 ;; Move frame focus
 (define-key *top-map* (kbd "s-h") "move-focus left")
