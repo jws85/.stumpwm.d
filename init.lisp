@@ -59,9 +59,7 @@
 
 ;; Applications
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
-;(define-key *root-map* (kbd "F1") "exec firefox")
-;(define-key *root-map* (kbd "F2") "exec emacs")
-;(define-key *root-map* (kbd "F3") "exec sakura")
+(define-key *top-map* (kbd "s-RET") "exec sakura")
 
 ;; Modeline ------------------------------------------------------------------
 
