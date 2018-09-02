@@ -1,8 +1,12 @@
-;; -*-lisp-*-
-
 (in-package :stumpwm)
 
-;(set-font "PragmataPro-10.5")
+(set-module-dir "~/.stumpwm.d/vendor/")
+
+;; Fonts ---------------------------------------------------------------------
+
+;; (ql:quickload "clx-truetype")
+(load-module "ttf-fonts")
+(set-font (make-instance 'xft:font :family "PragmataPro Mono" :subfamily "Regular" :size 10.5))
 
 ;; Swank server --------------------------------------------------------------
 ;; https://kaashif.co.uk/2015/06/28/hacking-stumpwm-with-common-lisp/index.html
