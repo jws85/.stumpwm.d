@@ -36,20 +36,18 @@
 
 ;; Key bindings --------------------------------------------------------------
 
-(set-prefix-key (kbd "s-q"))
-
 ;; StumpWM operations
 (defvar *stumpwm-control-map*
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "r") "reload")
     (define-key map (kbd "s") "mode-line")
     (define-key map (kbd "R") "loadrc")
-    (define-key map (kbd "Q") "quit")
+    (define-key map (kbd "q") "quit")
     (define-key map (kbd "i") "info")
     (define-key map (kbd "I") "show-window-properties")
     (define-key map (kbd "SPC") "eval")
     map))
-(define-key *top-map* (kbd "s-ESC") *stumpwm-control-map*)
+(define-key *top-map* (kbd "s-q") *stumpwm-control-map*)
 
 ;; Group handling
 (define-key *top-map* (kbd "s-g") "gnew")
