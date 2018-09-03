@@ -104,25 +104,56 @@
 
 (enable-mode-line (current-screen) (current-head) t)
 
-;; Gruvbox Dark
-(setf *colors*
-      '("#282828" ; black
-        "#cc241d" ; red
-        "#98971a" ; green
-        "#d79921" ; yellow
-        "#458588" ; blue
-        "#b16286" ; magenta
-        "#689d6a" ; cyan
-        "#a89984")) ; white
-(update-color-map (current-screen))
-(set-fg-color "#a89984")
-(set-bg-color "#282828")
-(set-border-color "#282828")
+(defclass color-scheme ()
+  ((black :initarg :black :initform "black")
+   (red :initarg :red :initform "red")
+   (green :initarg :green :initform "green")
+   (yellow :initarg :yellow :initform "yellow")
+   (blue :initarg :blue :initform "blue")
+   (magenta :initarg :magenta :initform "magenta")
+   (cyan :initarg :cyan :initform "cyan")
+   (white :initarg :white :initform "white")))
+
+(defmethod get-color-list ((scheme color-scheme))
+  (list (slot-value scheme 'black)
+        (slot-value scheme 'red)
+        (slot-value scheme 'green)
+        (slot-value scheme 'yellow)
+        (slot-value scheme 'blue)
+        (slot-value scheme 'magenta)
+        (slot-value scheme 'cyan)
+        (slot-value scheme 'white)))
+
+(defmethod set-color-scheme ((scheme color-scheme))
+  (setf *colors* (get-color-list scheme))
+  (update-color-map (current-screen)))
+
+(defmethod get-black ((scheme color-scheme))
+  (slot-value scheme 'black))
+
+(defmethod get-white ((scheme color-scheme))
+  (slot-value scheme 'white))
+
+(setf *gruvbox-dark-colors*
+      (make-instance 'color-scheme
+                     :black "#282828"
+                     :red "#cc241d"
+                     :green "#98971a"
+                     :yellow "#d79921"
+                     :blue "#458588"
+                     :magenta "#b16286"
+                     :cyan "#689d6a"
+                     :white "#a89984"))
+(set-color-scheme *gruvbox-dark-colors*)
+
+(set-fg-color (get-white *gruvbox-dark-colors*))
+(set-bg-color (get-black *gruvbox-dark-colors*))
+(set-border-color (get-black *gruvbox-dark-colors*))
 
 (setf *time-modeline-string* "%Y-%m-%e %H:%M")
 (setf *mode-line-border-width* 0)
-(setf *mode-line-background-color* "#282828")
-(setf *mode-line-foreground-color* "#a89984")
+(setf *mode-line-background-color* (get-black *gruvbox-dark-colors*))
+(setf *mode-line-foreground-color* (get-white *gruvbox-dark-colors*))
 (setf *screen-mode-line-format* "^B%d^b •^B^5 %g ^*^b• ^B^4%W^*^b")
 
 ;; (ql:quickload "xembed")
