@@ -42,6 +42,7 @@
 (defvar *stumpwm-control-map*
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "r") "reload")
+    (define-key map (kbd "s") "mode-line")
     (define-key map (kbd "R") "loadrc")
     (define-key map (kbd "Q") "quit")
     (define-key map (kbd "i") "info")
@@ -52,6 +53,7 @@
 
 ;; Group handling
 (define-key *top-map* (kbd "s-g") "gnew")
+(define-key *top-map* (kbd "s-r") "grename")
 (define-key *top-map* (kbd "s-TAB") "gother")
 (define-key *top-map* (kbd "s-`") "grouplist")
 (defun normalize-numbers (num)
@@ -80,13 +82,15 @@
 (define-key *top-map* (kbd "s--") "vsplit")
 (define-key *top-map* (kbd "s-\\") "hsplit")
 (define-key *top-map* (kbd "s-|") "hsplit")
-(define-key *top-map* (kbd "s-c") "remove-split")
-(define-key *top-map* (kbd "s-C") "only")
+(define-key *top-map* (kbd "s-x") "remove-split")
+(define-key *top-map* (kbd "s-X") "only")
 (define-key *top-map* (kbd "s-=") "balance-frames")
 (define-key *top-map* (kbd "s-w") "windowlist")
 (define-key *top-map* (kbd "s-f") "fullscreen")
 (define-key *top-map* (kbd "s-n") "pull-hidden-next")
 (define-key *top-map* (kbd "s-p") "pull-hidden-previous")
+(define-key *top-map* (kbd "s-c") "delete")
+(define-key *top-map* (kbd "s-C") "kill")
 
 ;; Applications
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
