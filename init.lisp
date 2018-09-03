@@ -2,6 +2,13 @@
 
 (set-module-dir "~/.stumpwm.d/vendor/")
 
+;; Modules -------------------------------------------------------------------
+
+;; (ql:quickload "dbus") ;; which installs ALL THE THINGS
+;; (ql:quickload "xml-emitter")
+(load-module "notify")
+(notify:notify-server-toggle)
+
 ;; Fonts ---------------------------------------------------------------------
 
 ;; (ql:quickload "clx-truetype")
@@ -98,10 +105,5 @@
 ;; (setf *screen-mode-line-format* '("%w | " (jws/timestamp)))
 
 ;; Startup applications ------------------------------------------------------
-
-;; (ql:quickload "dbus") ;; which installs ALL THE THINGS
-;; (ql:quickload "xml-emitter")
-(load-module "notify")
-(notify:notify-server-toggle)
 
 (run-shell-command "/usr/bin/setxkbmap -option ctrl:swapcaps")
