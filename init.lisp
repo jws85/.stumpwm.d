@@ -98,15 +98,29 @@
 
 ;; Modeline ------------------------------------------------------------------
 
-;; (defun jws/timestamp ()
-;;    (multiple-value-bind
-;;          (sec min hr day mon yr dow dstp tz)
-;;        (get-decoded-time)
-;;      (format t "~4,'0d-~2,'0d-~2,'0d ~2,'Od:~2,'0d:~2,'0d"
-;;              yr mon day hr min sec)))
+(enable-mode-line (current-screen) (current-head) t)
 
-;; (enable-mode-line (current-screen) (current-head) t)
-;; (setf *screen-mode-line-format* '("%w | " (jws/timestamp)))
+;; Gruvbox Dark
+(setf *colors*
+      '("#282828" ; black
+        "#cc241d" ; red
+        "#98971a" ; green
+        "#d79921" ; yellow
+        "#458588" ; blue
+        "#b16286" ; magenta
+        "#689d6a" ; cyan
+        "#a89984")) ; white
+(update-color-map (current-screen))
+(set-fg-color "#a89984")
+(set-bg-color "#282828")
+(set-border-color "#282828")
+
+(setf *time-modeline-string* "%Y-%m-%e %k:%M")
+(setf *mode-line-border-width* 0)
+(setf *mode-line-background-color* "#282828")
+(setf *mode-line-foreground-color* "#a89984")
+(setf *screen-mode-line-format* "%g • %W^>%d")
+(toggle-mode-line (current-screen) (current-head))
 
 ;; Startup applications ------------------------------------------------------
 
