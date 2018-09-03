@@ -11,6 +11,14 @@
   (merge-pathnames "vendor/" jws/init-directory)
   "A directory containing third-party modules.")
 
+(defvar jws/data-directory
+  (merge-pathnames "data/" jws/init-directory)
+  "A directory containing dumped window/frame data.")
+
+(defvar jws/group-data-file
+  (namestring (merge-pathnames "groups.lisp" jws/data-directory))
+  "A file containing dumped group data.")
+
 (defun jws/load (filename)
   "Load a file FILENAME (without extension) from `al/init-directory'."
   (let ((file (merge-pathnames (concat filename ".lisp")
@@ -48,6 +56,10 @@
 (set-border-color (get-black *color-scheme*))
 (set-focus-color (slot-value *color-scheme* 'magenta))
 
+;; Groups --------------------------------------------------------------------
+
+(restore-from-file jws/group-data-file)
+
 ;; Swank server --------------------------------------------------------------
 
 ;; https://kaashif.co.uk/2015/06/28/hacking-stumpwm-with-common-lisp/index.html
@@ -79,6 +91,9 @@
     (define-key map (kbd "s") "mode-line")
     (define-key map (kbd "R") "loadrc")
     (define-key map (kbd "q") "quit")
+    (define-key map (kbd "d") (concatenate
+                               'string "dump-desktop-to-file "
+                               jws/group-data-file))
     (define-key map (kbd "i") "info")
     (define-key map (kbd "I") "show-window-properties")
     (define-key map (kbd "SPC") "eval")
