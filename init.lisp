@@ -1,7 +1,5 @@
 (in-package :stumpwm)
 
-(set-module-dir "~/.stumpwm.d/vendor/")
-
 ;; From https://github.com/alezost/stumpwm-config/blob/master/init.lisp
 (defvar jws/init-directory
   (directory-namestring
@@ -9,13 +7,19 @@
                               ".stumpwm.d")))
   "A directory with initially loaded files.")
 
+(defvar jws/vendor-directory
+  (merge-pathnames "vendor/" jws/init-directory)
+  "A directory containing third-party modules.")
+
 (defun jws/load (filename)
   "Load a file FILENAME (without extension) from `al/init-directory'."
   (let ((file (merge-pathnames (concat filename ".lisp")
                                jws/init-directory)))
     (if (probe-file file)
         (load file)
-     (format *error-output* "File '~a' doesn't exist." file))))
+        (format *error-output* "File '~a' doesn't exist." file))))
+
+(set-module-dir jws/vendor-directory)
 
 ;; Modules -------------------------------------------------------------------
 
