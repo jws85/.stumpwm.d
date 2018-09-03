@@ -31,7 +31,7 @@
 (setq *focus-group-hook* nil)
 (add-hook *focus-group-hook*
           (lambda (new old)
-            (echo (format nil "Switched to^5 ~D^*:^6~A^*!"
+            (echo (format nil "Switched to^B^4 ~D^*:^B^5~A^*^b!"
                           (group-number new) (group-name new)))))
 
 ;; Key bindings --------------------------------------------------------------
