@@ -119,9 +119,8 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* "#282828")
 (setf *mode-line-foreground-color* "#a89984")
-(setf *screen-mode-line-format* "%g • %W^>%d")
-(toggle-mode-line (current-screen) (current-head))
+(setf *screen-mode-line-format* "%d • %g • %W")
 
-;; Startup applications ------------------------------------------------------
-
-(run-shell-command "/usr/bin/setxkbmap -option ctrl:swapcaps")
+;; (ql:quickload "xembed")
+(load-module "stumptray")
+(stumptray:stumptray)
