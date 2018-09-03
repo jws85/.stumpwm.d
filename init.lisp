@@ -58,7 +58,19 @@
 
 ;; Groups --------------------------------------------------------------------
 
-(restore-from-file jws/group-data-file)
+;; I've run into some issues with setting groups.  Stump insists on starting
+;; with one group called "Default".  When you restore from a file, it dumps
+;; all of those groups on top of that.
+;;
+;; So what I do now is:
+;;  - Get a variable associated with the Default group
+;;  - Rename it
+;;  - Restore my other groups (I hand-hack the dump to remove Default)
+;;  - Switch back to the Default group
+(let ((main-group (first (screen-groups (current-screen)))))
+  (setf (group-name main-group) "main")
+  (restore-from-file jws/group-data-file)
+  (gselect main-group))
 
 ;; Swank server --------------------------------------------------------------
 
