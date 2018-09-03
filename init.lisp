@@ -15,7 +15,7 @@
 ;; (nconc xft:*font-dirs '("/home/yourname/.local/share/fonts"))
 ;; (xft:cache-fonts)
 (load-module "ttf-fonts")
-(set-font (make-instance 'xft:font :family "PragmataPro Mono" :subfamily "Regular" :size 10.5))
+(set-font (make-instance 'xft:font :family "PragmataPro Mono" :subfamily "Regular" :size 11))
 
 ;; Swank server --------------------------------------------------------------
 
