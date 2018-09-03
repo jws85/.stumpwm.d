@@ -36,6 +36,9 @@
 
 ;; Key bindings --------------------------------------------------------------
 
+;; Raaaaaaaaaggggghhhhhhhhhhhhhhhhhhh
+(set-prefix-key (kbd "C-M-H-s-z"))
+
 ;; StumpWM operations
 (defvar *stumpwm-control-map*
   (let ((map (make-sparse-keymap)))
