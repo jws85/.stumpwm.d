@@ -96,6 +96,10 @@
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
 (define-key *top-map* (kbd "s-RET") "exec sakura")
 
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec pactl set-sink-volume 0 +5%")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec pactl set-sink-volume 0 -5%")
+(define-key *top-map* (kbd "XF86AudioMute") "exec pactl set-sink-mute 0 toggle")
+
 ;; Modeline ------------------------------------------------------------------
 
 (enable-mode-line (current-screen) (current-head) t)
