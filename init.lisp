@@ -26,13 +26,15 @@
                      :style swank:*communication-style*
                      :dont-close t)
 
-;; Switching groups ----------------------------------------------------------
+;; Messages ------------------------------------------------------------------
 
 (setq *focus-group-hook* nil)
 (add-hook *focus-group-hook*
           (lambda (new old)
             (echo (format nil "Switched to^B^4 ~D^*:^B^5~A^*^b!"
                           (group-number new) (group-name new)))))
+
+(setf *startup-message* "*Welcome to ^B^5StumpWM^*^b! ^_^")
 
 ;; Key bindings --------------------------------------------------------------
 
@@ -155,6 +157,7 @@
 (set-fg-color (get-white *gruvbox-dark-colors*))
 (set-bg-color (get-black *gruvbox-dark-colors*))
 (set-border-color (get-black *gruvbox-dark-colors*))
+(set-focus-color (slot-value *gruvbox-dark-colors* 'magenta))
 
 (setf *time-modeline-string* "%Y-%m-%e %H:%M")
 (setf *mode-line-border-width* 0)
