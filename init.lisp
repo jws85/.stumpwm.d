@@ -2,6 +2,21 @@
 
 (set-module-dir "~/.stumpwm.d/vendor/")
 
+;; From https://github.com/alezost/stumpwm-config/blob/master/init.lisp
+(defvar jws/init-directory
+  (directory-namestring
+   (truename (merge-pathnames (user-homedir-pathname)
+                              ".stumpwm.d")))
+  "A directory with initially loaded files.")
+
+(defun jws/load (filename)
+  "Load a file FILENAME (without extension) from `al/init-directory'."
+  (let ((file (merge-pathnames (concat filename ".lisp")
+                               jws/init-directory)))
+    (if (probe-file file)
+        (load file)
+     (format *error-output* "File '~a' doesn't exist." file))))
+
 ;; Modules -------------------------------------------------------------------
 
 ;; (ql:quickload "dbus") ;; which installs ALL THE THINGS
