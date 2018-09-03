@@ -102,6 +102,7 @@
     (define-key map (kbd "r") "reload")
     (define-key map (kbd "s") "mode-line")
     (define-key map (kbd "R") "loadrc")
+    (define-key map (kbd "k") "describe-key")
     (define-key map (kbd "q") "quit")
     (define-key map (kbd "d") (concatenate
                                'string "dump-desktop-to-file "
