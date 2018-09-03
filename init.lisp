@@ -91,6 +91,8 @@
 (define-key *top-map* (kbd "s-c") "delete")
 (define-key *top-map* (kbd "s-C") "kill")
 
+(define-key *top-map* (kbd "s-z") "banish")
+
 ;; Applications
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
 (define-key *top-map* (kbd "s-RET") "exec sakura")
