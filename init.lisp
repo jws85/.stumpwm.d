@@ -95,6 +95,7 @@
 ;; Applications
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
 (define-key *top-map* (kbd "s-RET") "exec sakura")
+(define-key *top-map* (kbd "s-b") "exec feh --bg-scale ~/.wallpaper")
 
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec pactl set-sink-volume 0 +5%")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec pactl set-sink-volume 0 -5%")
