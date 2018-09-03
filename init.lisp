@@ -119,11 +119,11 @@
 (set-bg-color "#282828")
 (set-border-color "#282828")
 
-(setf *time-modeline-string* "%Y-%m-%e %k:%M")
+(setf *time-modeline-string* "%Y-%m-%e %H:%M")
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* "#282828")
 (setf *mode-line-foreground-color* "#a89984")
-(setf *screen-mode-line-format* "%d • %g • %W")
+(setf *screen-mode-line-format* "^B%d^b •^B^5 %g ^*^b• ^B^4%W^*^b")
 
 ;; (ql:quickload "xembed")
 (load-module "stumptray")
