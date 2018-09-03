@@ -53,6 +53,7 @@
 
 ;; Group handling
 (define-key *top-map* (kbd "s-g") "gnew")
+(define-key *top-map* (kbd "s-d") "gkill")
 (define-key *top-map* (kbd "s-r") "grename")
 (define-key *top-map* (kbd "s-TAB") "gother")
 (define-key *top-map* (kbd "s-`") "grouplist")
