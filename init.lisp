@@ -123,14 +123,9 @@
    (white :initarg :white :initform "white")))
 
 (defmethod get-color-list ((scheme color-scheme))
-  (list (slot-value scheme 'black)
-        (slot-value scheme 'red)
-        (slot-value scheme 'green)
-        (slot-value scheme 'yellow)
-        (slot-value scheme 'blue)
-        (slot-value scheme 'magenta)
-        (slot-value scheme 'cyan)
-        (slot-value scheme 'white)))
+  (with-slots (black red green yellow blue magenta cyan white)
+      scheme
+    (list black red green yellow blue magenta cyan white)))
 
 (defmethod set-color-scheme ((scheme color-scheme))
   (setf *colors* (get-color-list scheme))
