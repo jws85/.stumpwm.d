@@ -69,7 +69,8 @@
 ;;  - Switch back to the Default group
 (let ((main-group (first (screen-groups (current-screen)))))
   (setf (group-name main-group) "main")
-  (restore-from-file jws/group-data-file)
+  (if (probe-file jws/group-data-file)
+      (restore-from-file jws/group-data-file))
   (gselect main-group))
 
 ;; Swank server --------------------------------------------------------------
