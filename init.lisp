@@ -163,6 +163,7 @@
 (define-key *top-map* (kbd "s-e") "exec emacsclient -c")
 (define-key *top-map* (kbd "s-b") "exec feh --bg-scale ~/.wallpaper")
 (define-key *top-map* (kbd "s-ESC") "exec i3lock -c282828")
+(define-key *top-map* (kbd "SunPrint_Screen") "exec scrot")
 
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec pactl set-sink-volume 0 +5%")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec pactl set-sink-volume 0 -5%")
