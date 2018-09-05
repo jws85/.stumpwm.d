@@ -88,12 +88,6 @@
 
 (setq *message-window-gravity* :top-left)
 
-(setq *focus-group-hook* nil)
-(add-hook *focus-group-hook*
-          (lambda (new old)
-            (echo (format nil "Switched to^B^4 ~D^*:^B^5~A^*^b!"
-                          (group-number new) (group-name new)))))
-
 (setf *startup-message* "*Welcome to ^B^5StumpWM^*^b! ^_^")
 
 ;; Key bindings --------------------------------------------------------------
