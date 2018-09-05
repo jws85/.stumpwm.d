@@ -84,6 +84,8 @@
 
 ;; Messages ------------------------------------------------------------------
 
+(setq *message-window-gravity* :top-left)
+
 (setq *focus-group-hook* nil)
 (add-hook *focus-group-hook*
           (lambda (new old)
