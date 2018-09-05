@@ -7,6 +7,10 @@
                               ".stumpwm.d")))
   "A directory with initially loaded files.")
 
+(defvar jws/site-lisp-file
+  (merge-pathnames "site.lisp" jws/init-directory)
+  "A file containing site-specific configuration.")
+
 (defvar jws/vendor-directory
   (merge-pathnames "vendor/" jws/init-directory)
   "A directory containing third-party modules.")
@@ -184,8 +188,19 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* (get-black *gruvbox-dark-colors*))
 (setf *mode-line-foreground-color* (get-white *gruvbox-dark-colors*))
-(setf *screen-mode-line-format* "^B^5 %g ^*^b• ^B^4%W^*^b^>^B%d^b %T")
 
-;; (ql:quickload "xembed")
 (load-module "stumptray")
+(defun jws/build-modeline (left right)
+  (setf *screen-mode-line-format* (concatenate 'string left "^>" right " %T")))
+(jws/build-modeline "^B^5 %g ^*^b• ^B^4%W^*^b" "^B%d^b")
+
+;; Modeline ------------------------------------------------------------------
+
+(if (probe-file jws/site-lisp-file)
+    (load jws/site-lisp-file))
+
+;; Stumptray -----------------------------------------------------------------
+
+;; Must be loaded last...
+;; (ql:quickload "xembed")
 (stumptray:stumptray)
