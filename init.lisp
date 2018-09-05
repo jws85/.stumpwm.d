@@ -178,7 +178,7 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* (get-black *gruvbox-dark-colors*))
 (setf *mode-line-foreground-color* (get-white *gruvbox-dark-colors*))
-(setf *screen-mode-line-format* "^B%d^b •^B^5 %g ^*^b• ^B^4%W^*^b")
+(setf *screen-mode-line-format* "^B^5 %g ^*^b• ^B^4%W^*^b^>^B%d^b %T")
 
 ;; (ql:quickload "xembed")
 (load-module "stumptray")
