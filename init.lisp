@@ -55,6 +55,8 @@
 (set-bg-color (get-black *color-scheme*))
 (set-border-color (get-black *color-scheme*))
 (set-focus-color (slot-value *color-scheme* 'magenta))
+(set-float-focus-color (slot-value *color-scheme* 'magenta))
+(set-float-unfocus-color (slot-value *color-scheme* 'blue))
 
 ;; Groups --------------------------------------------------------------------
 
@@ -118,10 +120,14 @@
 
 ;; Group handling
 (define-key *top-map* (kbd "s-g") "gnew")
+(define-key *top-map* (kbd "s-G") "gnew-float")
 (define-key *top-map* (kbd "s-d") "gkill")
 (define-key *top-map* (kbd "s-r") "grename")
+(define-key *top-map* (kbd "s-Left") "gprev")
+(define-key *top-map* (kbd "s-Right") "gnext")
 (define-key *top-map* (kbd "s-TAB") "gother")
 (define-key *top-map* (kbd "s-`") "grouplist")
+(define-key *top-map* (kbd "s-~") "gmove")
 (defun normalize-numbers (num)
   (if (= num 0) 10 num))
 (defun get-shifted-number (num)
@@ -147,14 +153,18 @@
 ;; Window and frame operations
 (define-key *top-map* (kbd "s--") "vsplit")
 (define-key *top-map* (kbd "s-\\") "hsplit")
+(define-key *top-map* (kbd "s-,") "resize -20 0")
+(define-key *top-map* (kbd "s-.") "resize +20 0")
+(define-key *top-map* (kbd "s-<") "resize 0 -20")
+(define-key *top-map* (kbd "s->") "resize 0 +20")
 (define-key *top-map* (kbd "s-|") "hsplit")
 (define-key *top-map* (kbd "s-x") "remove-split")
 (define-key *top-map* (kbd "s-X") "only")
 (define-key *top-map* (kbd "s-=") "balance-frames")
-(define-key *top-map* (kbd "s-w") "windowlist")
+(define-key *top-map* (kbd "s-/") "windowlist")
 (define-key *top-map* (kbd "s-f") "fullscreen")
-(define-key *top-map* (kbd "s-n") "pull-hidden-next")
-(define-key *top-map* (kbd "s-p") "pull-hidden-previous")
+(define-key *top-map* (kbd "s-n") "next")
+(define-key *top-map* (kbd "s-p") "prev")
 (define-key *top-map* (kbd "s-c") "delete")
 (define-key *top-map* (kbd "s-C") "kill")
 
