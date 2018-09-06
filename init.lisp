@@ -163,6 +163,7 @@
 (define-key *top-map* (kbd "s-f") "fullscreen")
 (define-key *top-map* (kbd "s-n") "next")
 (define-key *top-map* (kbd "s-p") "prev")
+(define-key *top-map* (kbd "s-o") "other-window")
 (define-key *top-map* (kbd "s-c") "delete")
 (define-key *top-map* (kbd "s-C") "kill")
 
