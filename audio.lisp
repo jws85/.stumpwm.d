@@ -27,3 +27,19 @@
   (run-shell-command "pactl set-sink-mute 0 toggle")
   (message (jws/get-master-mixer-status)))
 (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle-mute")
+
+(defcommand mpd-play-pause () ()
+  (run-shell-command "mpc toggle"))
+(define-key *top-map* (kbd "XF86AudioPlay") "mpd-play-pause")
+
+(defcommand mpd-stop () ()
+  (run-shell-command "mpc stop"))
+(define-key *top-map* (kbd "XF86AudioStop") "mpd-stop")
+
+(defcommand mpd-next-song () ()
+  (run-shell-command "mpc next"))
+(define-key *top-map* (kbd "XF86AudioNext") "mpd-next-song")
+
+(defcommand mpd-previous-song () ()
+  (run-shell-command "mpc prev"))
+(define-key *top-map* (kbd "XF86AudioPrev") "mpd-previous-song")
