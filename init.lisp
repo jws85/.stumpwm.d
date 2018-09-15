@@ -164,6 +164,7 @@
 (define-key *top-map* (kbd "s-n") "next-in-frame")
 (define-key *top-map* (kbd "s-p") "prev-in-frame")
 (define-key *top-map* (kbd "s-o") "other-window")
+(define-key *top-map* (kbd "M-TAB") "other-window")
 (define-key *top-map* (kbd "s-c") "delete")
 (define-key *top-map* (kbd "s-C") "kill")
 
