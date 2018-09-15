@@ -143,10 +143,10 @@
 (define-key *top-map* (kbd "s-l") "move-focus right")
 
 ;; Move current window
-(define-key *top-map* (kbd "s-H") "move-window left")
-(define-key *top-map* (kbd "s-J") "move-window down")
-(define-key *top-map* (kbd "s-K") "move-window up")
-(define-key *top-map* (kbd "s-L") "move-window right")
+(define-key *top-map* (kbd "s-H") "exchange-direction left")
+(define-key *top-map* (kbd "s-J") "exchange-direction down")
+(define-key *top-map* (kbd "s-K") "exchange-direction up")
+(define-key *top-map* (kbd "s-L") "exchange-direction right")
 
 ;; Window and frame operations
 (define-key *top-map* (kbd "s--") "vsplit")
