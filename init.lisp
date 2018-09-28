@@ -118,6 +118,12 @@
 (define-key *top-map* (kbd "s-q") *stumpwm-control-map*)
 
 ;; Group handling
+(defun normalize-numbers (num)
+  (if (= num 0) 10 num))
+
+(defun get-shifted-number (num)
+  (char ")!@#$%^&*(" num))
+
 (define-key *top-map* (kbd "s-g") "gnewbg")
 (define-key *top-map* (kbd "s-G") "gnewbg-float")
 (define-key *top-map* (kbd "s-d") "gkill")
@@ -127,10 +133,6 @@
 (define-key *top-map* (kbd "s-TAB") "gother")
 (define-key *top-map* (kbd "s-`") "grouplist")
 (define-key *top-map* (kbd "s-~") "gmove")
-(defun normalize-numbers (num)
-  (if (= num 0) 10 num))
-(defun get-shifted-number (num)
-  (char ")!@#$%^&*(" num))
 (dolist (num (alexandria:iota 10))
   (define-key *top-map* (kbd (format nil "s-~D" num))
     (format nil "gselect ~D" (normalize-numbers num)))
