@@ -124,10 +124,21 @@
 (defun get-shifted-number (num)
   (char ")!@#$%^&*(" num))
 
+(defun group-numbers (screen)
+  (mapcar #'group-number
+    (screen-groups screen)))
+
+(defcommand grenumber (new-number)
+    ((:number "Enter new group number: "))
+  (if (member new-number (group-numbers (current-screen)))
+      (message (format nil "Group number ~D is already occupied!" new-number))
+      (setf (group-number (current-group)) new-number)))
+
 (define-key *top-map* (kbd "s-g") "gnewbg")
 (define-key *top-map* (kbd "s-G") "gnewbg-float")
 (define-key *top-map* (kbd "s-d") "gkill")
 (define-key *top-map* (kbd "s-r") "grename")
+(define-key *top-map* (kbd "s-R") "grenumber")
 (define-key *top-map* (kbd "s-Left") "gprev")
 (define-key *top-map* (kbd "s-Right") "gnext")
 (define-key *top-map* (kbd "s-TAB") "gother")
