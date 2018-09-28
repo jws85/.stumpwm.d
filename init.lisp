@@ -118,8 +118,8 @@
 (define-key *top-map* (kbd "s-q") *stumpwm-control-map*)
 
 ;; Group handling
-(define-key *top-map* (kbd "s-g") "gnew")
-(define-key *top-map* (kbd "s-G") "gnew-float")
+(define-key *top-map* (kbd "s-g") "gnewbg")
+(define-key *top-map* (kbd "s-G") "gnewbg-float")
 (define-key *top-map* (kbd "s-d") "gkill")
 (define-key *top-map* (kbd "s-r") "grename")
 (define-key *top-map* (kbd "s-Left") "gprev")
