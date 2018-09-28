@@ -33,13 +33,6 @@
 
 (set-module-dir jws/vendor-directory)
 
-;; Modules -------------------------------------------------------------------
-
-;; (ql:quickload "dbus") ;; which installs ALL THE THINGS
-;; (ql:quickload "xml-emitter")
-(load-module "notify")
-(notify:notify-server-toggle)
-
 ;; Fonts ---------------------------------------------------------------------
 
 ;; (ql:quickload "clx-truetype")

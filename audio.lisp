@@ -3,6 +3,8 @@
 ;; (ql:quickload "split-sequence")
 ;; (ql:quickload "cl-ppcre")
 
+(require :split-sequence)
+
 (defun jws/split-string-by-newlines (string)
   (split-sequence:split-sequence #\linefeed string :remove-empty-subseqs t))
 
