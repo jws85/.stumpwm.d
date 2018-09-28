@@ -113,6 +113,7 @@
     (define-key map (kbd "i") "info")
     (define-key map (kbd "I") "show-window-properties")
     (define-key map (kbd "SPC") "eval")
+    (define-key map (kbd ":") "colon")
     map))
 (define-key *top-map* (kbd "s-q") *stumpwm-control-map*)
 
