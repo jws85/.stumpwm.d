@@ -181,7 +181,7 @@
 (jws/load "audio")
 
 (define-key *top-map* (kbd "s-SPC") "exec rofi -show run -display-run \">>> \"")
-(define-key *top-map* (kbd "s-RET") "exec sakura")
+(define-key *top-map* (kbd "s-RET") "exec mate-terminal")
 (define-key *top-map* (kbd "s-e") "exec emacsclient -c")
 (define-key *top-map* (kbd "s-b") "exec feh --bg-scale ~/.wallpaper")
 (define-key *top-map* (kbd "s-ESC") "exec i3lock -c282828")
