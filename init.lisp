@@ -204,10 +204,16 @@
 (setf *mode-line-background-color* (get-black *gruvbox-dark-colors*))
 (setf *mode-line-foreground-color* (get-white *gruvbox-dark-colors*))
 
+(load-module "cpu")
+(load-module "mem")
 (load-module "stumptray")
 (defun jws/build-modeline (left right)
   (setf *screen-mode-line-format* (concatenate 'string left "^>" right " %T")))
-(jws/build-modeline "^B^5 %g ^*^b• ^B^4%W^*^b" "^B%d^b")
+
+(defvar jws/modeline-lhs "^B^5 %g ^*^b• ^B^4%W^*^b")
+(defvar jws/modeline-rhs "%c• Mem: %N • ^B%d^b")
+
+(jws/build-modeline jws/modeline-lhs jws/modeline-rhs)
 
 ;; Modeline ------------------------------------------------------------------
 
