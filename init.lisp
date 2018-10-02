@@ -87,6 +87,14 @@
 
 (setf *startup-message* "*Welcome to ^B^5StumpWM^*^b! ^_^")
 
+;; Window handling ---------------------------------------------------------
+
+;; Click-to-focus, like every non-tiling WM does it.  The default is
+;; to ignore the rat (high-minded, but I can't jell with it); there is
+;; also sloppy (focus-follows-mouse) which is the other frustrating
+;; extreme.
+(setf *mouse-focus-policy* :click)
+
 ;; Key bindings --------------------------------------------------------------
 
 ;; Raaaaaaaaaggggghhhhhhhhhhhhhhhhhhh
